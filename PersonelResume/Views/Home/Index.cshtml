@@ -1,0 +1,55 @@
+﻿@model PersonelResume.Models.HomeViewModel
+<link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic|Open+Sans:300,400,500,700|Waiting+for+the+Sunrise|Shadows+Into+Light' rel='stylesheet' type='text/css'>
+<link href="~/css/styles.css" rel="stylesheet" />
+<div class="wrapper clearfix">
+    <div class="left">
+        <div class="name-hero">
+            <div class="me-img"></div>
+            <div class="name-text">
+                <h1>@Model.Personelİnfo.Name<em><br />@Model.Personelİnfo.Surname</em></h1>
+                <p>@Model.Personelİnfo.Address</p>
+                <p>@Model.Personelİnfo.Email</p>
+                <p>@Model.Personelİnfo.Phone</p>
+            </div>
+        </div>
+    </div>
+    <div class="right">
+        <div class="inner">
+            <section>
+                <h1>Deneyim</h1>
+                @foreach (var experience in Model.Experiences)
+                {
+                    <p>⫸ @experience.Duration | <em>@experience.Company | @experience.Role</em></p>
+                    <p>@experience.Description</p>
+                }
+            </section>
+            <section>
+                <h1>Yetenekler</h1>
+                <ul class="skill-set banned">
+                    <h2>Skills</h2>
+                    @foreach (var skill in Model.Home.skills)
+                    {
+                        <li>@skill</li>
+                    }
+                </ul>
+            </section>
+            <section>
+                <h1>Bağlantılar</h1>
+                <ul class="skill-set">
+                    <li><a href="https://github.com/yasinbilg1" target="_blank">GitHub</a></li>
+                    <li><a href="https://www.linkedin.com/in/yasinbilgi/" target="_blank">LinkedIn</a></li>
+                    <li><a href="https://instagram.com/yasinbilgi" target="_blank">Instagram</a></li>
+                    <li><a href="mailto:y.melihbilgi@gmail.com" target="_blank">Mail</a></li>
+                </ul>
+            </section>
+            <section>
+                <h1>Referanslar</h1>
+                @foreach (var reference in Model.References)
+                {
+                    <p>⫸ @reference.ReferenceName | <em>@reference.ReferenceCompany</em></p>
+                    <p>@reference.ReferencePhone | <a href="mailto:@reference.ReferenceEmail">@reference.ReferenceEmail</a></p>
+                }
+            </section>
+        </div>
+    </div>
+</div>
